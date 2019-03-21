@@ -11,7 +11,8 @@
         <link href="${bootstrap}" rel="stylesheet" />
         <spring:url value="resources/css/custom.css" var="custom"/>
         <link href="${custom}" rel="stylesheet" />  
-
+        
+/** Formulario para mostrar provincias */
 <title>FORMULARIO DE PROVINCIA</title>
 </head>
 <body>
