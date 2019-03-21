@@ -17,17 +17,20 @@ public class Provincia {
 	
 	private static final Logger logger = LogManager.getLogger("Mensaje");
 	
+	@Id
+	@Column
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idprovincia;
+	
+	@Column(name = "provincia")
 	private String provincia;
 	
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "idprovincia")
+
 	public int getIdprovincia() {
 		logger.info ("Obtener provincia");
 		return idprovincia;
 	}
+	
 	public void setIdprovincia(int idprovincia) {
 		this.idprovincia = idprovincia;
 	}
