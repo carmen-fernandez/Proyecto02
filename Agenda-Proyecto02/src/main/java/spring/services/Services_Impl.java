@@ -1,5 +1,7 @@
 package spring.services;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,14 @@ public class Services_Impl implements I_Services{
 	
 	@Autowired
 	private I_DAO_Provincia repository;
+	
+	
+	/** Método para mostrar todas las provincias */
+	public List <Provincia> findAll() {
+		return repository.findAll();
+	}
 
+	
 	/** Método para dar de alta una nueva provincia*/
 	@Override
 	public Provincia create(Provincia provincia) {
@@ -23,6 +32,7 @@ public class Services_Impl implements I_Services{
 		return repository.save(provincia);
 	}
 
+	
 	/** Método para eliminar una provincia*/
 	@Override
 	public Provincia deleteById(int idProvincia) {
@@ -35,19 +45,28 @@ public class Services_Impl implements I_Services{
 		return provincia;
 	}
 	
+	
 	/** Método para modificar una provincia */
 	@Override
 	public Provincia update(Provincia provincia) {
 		logger.info("Modifica el nombre d ela provincia");
 		return repository.save(provincia);
 	}
-	
-	/** Método para mostrar provincia */
+
+
 	@Override
 	public Provincia findById(int idProvincia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	/** Método para mostrar provincia */
+
+	/*public Provincia findById(int idProvincia) {
 		logger.info("Se muestra la provincia si se encuentra el id");
 		return repository.findById(idProvincia).orElse(null);
-	}
+	}*/
 	
 	
 }

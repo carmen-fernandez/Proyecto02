@@ -1,10 +1,14 @@
 package spring.services;
 
 
+import java.util.List;
+
 import spring.model.Provincia;
 
 
 public interface I_Services {
+	
+	List<Provincia> findAll();
 	
 	/** ALTA NUEVA PROVINCIA */
 	Provincia create(Provincia provincia);
