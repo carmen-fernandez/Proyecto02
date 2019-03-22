@@ -25,7 +25,7 @@ public class ProvinciaController {
 	
 	
 	
-	@GetMapping ("/Hola")
+	@GetMapping ("/")
 	public ModelAndView lista() {
 		System.out.println("----- He entrado a la primera pagina");
 		List<Provincia> listaProvincias = service.findAll();
