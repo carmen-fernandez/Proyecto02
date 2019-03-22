@@ -17,7 +17,7 @@ public interface I_Services {
 	Provincia deleteById(int idProvincia);
 	
 	/** MODIFICAR PROVINCIA */
-	Provincia update (Provincia provincia);
+	Provincia update (int idProvincia1);
 	
 	/** MOSTRAR PROVINCIA */
 	Provincia findById (int idProvincia);

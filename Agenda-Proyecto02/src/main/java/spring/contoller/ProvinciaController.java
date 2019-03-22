@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.model.Provincia;
@@ -26,16 +25,39 @@ public class ProvinciaController {
 	
 	
 	@GetMapping ("/")
-	public ModelAndView lista() {
-		System.out.println("----- He entrado a la primera pagina");
+	public ModelAndView listaProvincia() {
 		List<Provincia> listaProvincias = service.findAll();
 		ModelAndView model = new ModelAndView("ListaProvincias");
 		model.addObject("listaProvincias", listaProvincias);
 		logger.info("Se recoge el listado de Provincias para mostrar");
-		System.out.println("Listado Provincias");
 		return model;
 	}
 	
+	@GetMapping ("/insertarProvincia")
+	public ModelAndView insertarProvincia() {
+		Provincia p = new Provincia();
+		ModelAndView model = new ModelAndView("CrearProvincia");
+		model.addObject("crearProvincia", service.create(p));
+		logger.info("Se recoge el nombre de Provincias para añadirlo");
+		return model;
+	}
 	
+	@GetMapping ("/insertarProvincia")
+	public ModelAndView modificarProvincia(int id) {
+		Provincia p = service.update(id);
+		ModelAndView model = new ModelAndView("ModificarProvincia");
+		model.addObject("modificarProvincia", p); 
+		logger.info("Se recoge el nombre de Provincias para editarlo");
+		return model;
+	}
+	
+	@GetMapping ("/")
+	public ModelAndView borrarProvincia(int id2) {
+		Provincia p = service.deleteById(id2);
+		ModelAndView model = new ModelAndView("ListaProvincias");
+		model.addObject("listaProvincias", p);
+		logger.info("Se recoge el listado de Provincias para mostrar");
+		return model;
+	}
 }
 
