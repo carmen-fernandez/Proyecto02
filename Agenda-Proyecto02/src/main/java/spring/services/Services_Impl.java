@@ -48,9 +48,13 @@ public class Services_Impl implements I_Services{
 	
 	/** Método para modificar una provincia */
 	@Override
-	public Provincia update(Provincia provincia) {
-		logger.info("Modifica el nombre d ela provincia");
-		return repository.save(provincia);
+	public Provincia update(int idProvincia1) {
+		logger.info("Modifica el nombre de la provincia");
+		Provincia provincia = findById(idProvincia1);
+		if (provincia != null) {
+			repository.save(provincia);
+		}
+		return provincia;
 	}
 
 
