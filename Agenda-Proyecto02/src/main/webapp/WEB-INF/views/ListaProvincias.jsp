@@ -7,38 +7,46 @@
 
 <html>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <meta charset="UTF-8">
 
-<spring:url value="resources/css/bootstrap.css" var="bootstrap" />
+<spring:url value="classes/css/bootstrap.css" var="bootstrap" />
 <link href="${bootstrap}" rel="stylesheet" />
-<spring:url value="resources/css/custom.css" var="custom" />
+<spring:url value="classes/css/custom.css" var="custom" />
 <link href="${custom}" rel="stylesheet" />
 
 <title>LISTADO DE PROVINCIAS</title>
 </head>
 <body>
-	<div align="center">
+	<div align="center" class="container w-25 p-3">
 		<h1>LISTADO DE PROVINCIAS</h1>
 
-		<table border="1">
+		<table class="table table-striped" >
+		<thead>
 			<tr>
-				<th>ID Provincias</th>
-				<th>Provincias</th>
+				<th scope="row">ID Provincias</th>
+				<th scope="row">Provincias</th>
+				
 			</tr>
-
+		 </thead>	
+		 
+		 <tbody>
 			<c:forEach var="prov" items="${listaProvincias}">
 				<tr>
 					<td>${prov.idprovincia}</td>
 					<td>${prov.provincia}</td>
+					
 				</tr>
 			</c:forEach>
-			
+		</tbody>
 		</table>
 		
+		
 		<p>
-			<a href="new">Haz clic para crear un NUEVO USUARIO</a> 
+			<a href="new" class="btn btn-primary"> Nueva Provincia</a> 
 			
 		</p>
+		
 		
 	</div>
 </body>
