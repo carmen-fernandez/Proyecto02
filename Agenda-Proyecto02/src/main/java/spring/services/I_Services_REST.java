@@ -6,20 +6,20 @@ import java.util.List;
 import spring.model.Provincia;
 
 
-public interface I_Services {
+public interface I_Services_REST {
 	
 	List<Provincia> findAll();
 	
 	/** ALTA NUEVA PROVINCIA */
-	void save(Provincia provincia);
+	Provincia save(Provincia provincia);
 	
 	/** BAJA PROVINCIA */
 	Provincia deleteById(int idProvincia);
 	
 	/** MODIFICAR PROVINCIA */
-	Provincia update (int idProvincia);
-	
-	/** ENCONTRAR LA PROVINCIA DADO UN ID */
-	Provincia findById (int idProvincia);
+	Provincia update(Provincia provincia);
+
+	Provincia findById(int id);
+
 
 }

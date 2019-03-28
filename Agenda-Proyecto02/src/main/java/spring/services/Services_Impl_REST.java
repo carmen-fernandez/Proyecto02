@@ -11,7 +11,7 @@ import spring.dao.I_DAO_Provincia;
 import spring.model.Provincia;
 
 @Service
-public class Services_Impl implements I_Services{
+public class Services_Impl_REST implements I_Services_REST{
 	
 	private static final Logger logger = LogManager.getLogger("Mensaje");
 	
@@ -27,12 +27,12 @@ public class Services_Impl implements I_Services{
 	
 	/** Método para dar de alta una nueva provincia*/
 	@Override
-	public void save(Provincia provincia) {
+	public Provincia save(Provincia provincia) {
 		logger.info("Se guarda la provincia en la base de datos");
-		repository.save(provincia);
+		return repository.save(provincia);
 	}
 
-	
+
 	/** Método para eliminar una provincia*/
 	@Override
 	public Provincia deleteById(int idprovincia) {
@@ -44,30 +44,24 @@ public class Services_Impl implements I_Services{
 		if (p != null) {
 			logger.info("---- borrando");
 			repository.delete(p);
+		}else {
+			logger.warn("---- Id de provincia no encontrada");
 		}
 		return p;
 	}
-	
 
 	
-	/** Método para modificar una provincia */
+	/** Método para modificar una provincia*/
 	@Override
-	public Provincia update(int idProvincia) {
-		logger.info("Modifica el nombre de la provincia");
-		Provincia provincia = findById(idProvincia);
-		
-		if (provincia != null) {
-			repository.save(provincia);
-		}
-		return provincia;
+	public Provincia update(Provincia p) {
+		return repository.save(p);
 	}
 
-	
-	/** Método para encontrar una Provincia, dado un id */
+
+
 	@Override
-	public Provincia findById(int idProvincia) {
-		logger.info("Se muestra la provincia si se encuentra el id");
-		return repository.findById(idProvincia).orElse(null);
+	public Provincia findById(int id) {
+		return repository.findById(id).orElse(null);
 	}
-	
+
 }

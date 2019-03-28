@@ -2,8 +2,6 @@ package spring.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -18,18 +16,29 @@ public class Provincia {
 	private static final Logger logger = LogManager.getLogger("Mensaje");
 	
 	@Id
-	@Column
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "idprovincia")
 	private int idprovincia;
 	
 	@Column(name = "provincia")
 	private String provincia;
 	
+	
+	public Provincia () {}
+	
+	public Provincia (String provincia) {
+		this.provincia = provincia;
+	}
+	
+	public Provincia (int idprovincia, String provincia) {
+		this.idprovincia = idprovincia;
+		this.provincia = provincia;
+	}
 
+	
 	public int getIdprovincia() {
-		logger.info ("Obtener provincia");
 		return idprovincia;
 	}
+	
 	
 	public void setIdprovincia(int idprovincia) {
 		this.idprovincia = idprovincia;
@@ -40,9 +49,11 @@ public class Provincia {
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
 	}
-	
-	
-	
 
+	@Override
+	public String toString() {
+		logger.info("Convierte los datos a String para ser mostrados correctamente");
+		return "Provincia [idprovincia=" + idprovincia + ", provincia=" + provincia + "]";
+	}
 
 }

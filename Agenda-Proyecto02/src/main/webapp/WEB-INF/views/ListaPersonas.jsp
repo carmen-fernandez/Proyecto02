@@ -14,33 +14,36 @@
 
 
 
-<title>LISTADO DE PROVINCIAS</title>
+<title>LISTADO DE PERSONAS</title>
 </head>
 <body style='background-color: #669900;'>
    <br>
 	<div align="center" class="container border border-secondary rounded p-3 mb-2 bg-light text-dark"    style="width: 700px;border-color: blue;" >
-		<h1 class="font-weight-bolder">LISTADO DE PROVINCIAS
+		<h1 class="font-weight-bolder">LISTADO DE PERSONAS
 		&emsp;
-			<a href="${pageContext.request.contextPath}/Provincia/form1" class="btn btn-primary fas fa-pencil-alt"></a>
+			<a href="${pageContext.request.contextPath}/Persona/form2" class="btn btn-primary fas fa-pencil-alt"></a>
 		</h1> 
 
 		<table class="table table-striped ">
 		<thead>
 			<tr class="table">
 				<th>ID </th>
-				<th>Provincias</th>
+				<th>Personas</th>
 				<th></th>
 				<th></th>
 		</tr>
 		</thead>
 
 		<tbody>
-			<c:forEach var="prov" items="${listaProvincias}">
+			<c:forEach var="pers" items="${listaPersonas}">
 				<tr>
-					<td>${prov.idprovincia}</td>
-					<td>${prov.provincia}</td>
-					<td><a href="${pageContext.request.contextPath}/Provincia/delete/${prov.idprovincia}" class="btn btn-danger far fa-trash-alt"></a></td>
-					<td><a href="/Provincia/modificar?idprovincia=${prov.idprovincia}" class="btn btn-secondary fa fa-edit"></a></td>
+					<td>${pers.idpersona}</td>
+					<td>${pers.nombre}</td>
+					<td>${pers.apellido1}</td>
+					<td>${pers.apellido2}</td>
+					<td>${pers.dni}</td>
+					<td><a href="${pageContext.request.contextPath}/Persona/delete/${pers.idpersona}" class="btn btn-danger far fa-trash-alt"></a></td>
+					<td><a href="/Persona/modificar?idpersona=${pers.idpersona}" class="btn btn-secondary fa fa-edit"></a></td>
 					
 				</tr>
 			</c:forEach>
